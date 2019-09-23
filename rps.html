@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+
+    <title>Rock, Paper, Scissors</title>
+</head>
+<body>
+
+<h1>Rock, Paper, Scissors</h1>
+
+<div class="game">
+
+    <script>
+        // Dit valg. 
+        var userChoice = prompt("Do you choose rock, paper or scissors?");
+        if (! userChoice) {
+            
+        } else {
+            // Her viser jeg playeren's valg
+            document.write("<p>Player 1:" + " " + userChoice + "</p>");
+        }
+        // Computeren randomnizer et valg her
+        var computerChoice = Math.random();
+        if (computerChoice < 0.34) {
+            computerChoice = "rock";
+        } else if(computerChoice <= 0.67) {
+            computerChoice = "paper";
+        } else {
+            computerChoice = "scissors";
+        }
+
+        // Her viser jeg computeres valg
+        document.write("<p>Computer:" + " " + computerChoice + "</p>");
+
+        // Magien sker her
+
+        var compare = function(choice1,choice2) {
+            if (choice1 === choice2) {
+                return "It's a tie!";
+            }
+            if (choice1 === "rock") {
+                if (choice2 === "scissors") {
+                    // rock wins
+                    return "You win!";
+                } else {
+                    // paper wins
+                    return "You lose! Try again.";
+                }
+            }
+            if (choice1 === "paper") {
+                if (choice2 === "rock") {
+                    // paper wins
+                    return "You win!";
+                } else {
+                    // scissors wins
+                    return "You lose! Try again.";
+                }
+            }
+            if (choice1 === "scissors") {
+                if (choice2 === "rock") {
+                    // rock wins
+                    return "You lose! Try again.";
+                } else {
+                    // scissors wins
+                    return "You win!";
+                }
+            }
+        };
+        // Her sammenligner jeg resultaterne 
+        var results = compare(userChoice,computerChoice);
+        // Her vises resultaterne
+        document.write("<br><hr><br>" + results);
+    </script>
+
+</div>
+
+</body>
+</html>
